@@ -1,0 +1,2 @@
+size smiles gsk3b jnk3 qed sa qed sa max_or_val 
+51 CN([C@@H](Cc1ccc(OS(=O)(=O)c2cccc3cnccc23)cc1)C(=O)N1CCN(c2ccccc2)CC1)S(=O)(=O)c1cccc2cnccc12 0.66 0.72 0.17687410754264862 0.7269705646240954 0.17687410754264862 0.7269705646240954 1
