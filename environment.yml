@@ -1,0 +1,13 @@
+name: mcts
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - rdkit
+  - pandas
+  - seaborn
+  - pip
+  - pip:
+    - pickle-mixin
+    - scikit-learn==0.21.3
+    - git+https://github.com/mahendra-awale/medchem_moves
