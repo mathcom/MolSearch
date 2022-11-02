@@ -9,14 +9,14 @@ from score_modules.SA_Score import sascorer
 #from score_modules.RGES_Score.rges import RGESCalculator
 from score_modules.GSK3B_Score.gsk3b import GSK3BCalculator
 from score_modules.JNK3_Score.jnk3 import JNK3Calculator
-from score_modules.COVID_Score.covid import COVIDCalculator
+#from score_modules.COVID_Score.covid import COVIDCalculator
 
 
 esol_calculator = ESOLCalculator()
 #rges_calculator = RGESCalculator()
 gsk3b_calculator = GSK3BCalculator()
 jnk3_calculator = JNK3Calculator()
-covid_calculator = COVIDCalculator()
+#covid_calculator = COVIDCalculator()
 
 
 def gsk3b(mol):
@@ -37,16 +37,16 @@ def sa(mol):
     return normalized_sa
 
 
-def npc1(mol):
-    return covid_calculator.get_score(mol, 'npc1')
+#def npc1(mol):
+#    return covid_calculator.get_score(mol, 'npc1')
 
 
-def insig1(mol):
-    return covid_calculator.get_score(mol, 'insig1')
+#def insig1(mol):
+#    return covid_calculator.get_score(mol, 'insig1')
 
 
-def hmgcs1(mol):
-    return covid_calculator.get_score(mol, 'hmgcs1')
+#def hmgcs1(mol):
+#    return covid_calculator.get_score(mol, 'hmgcs1')
 
 
 

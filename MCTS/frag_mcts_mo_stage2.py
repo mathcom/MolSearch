@@ -25,8 +25,8 @@ parser.add_argument('--goal', type = str, default = 'qed_sa')
 parser.add_argument('--constraint', type = str, default = 'gsk3b_jnk3')
 parser.add_argument('--start_mols', type = str, default = 'task1')
 # parser.add_argument('--mol_idx', type = int, default = 0)
-# parser.add_argument('--start_idx', type = int, default = 0)
-# parser.add_argument('--end_idx', type = int, default = 1)
+parser.add_argument('--start_idx', type = int, default = None)
+parser.add_argument('--end_idx', type = int, default = None)
 parser.add_argument('--group_idx', type = int, default = 0)
 parser.add_argument('--max_child', type = int, default = 3)
 parser.add_argument('--num_sims', type = int, default = 10)
@@ -138,7 +138,7 @@ class State():
         self.valid_actions = self.get_valid_actions()
 
     def get_valid_actions(self):
-        actions = get_actions(state=self.smiles, allow_substitution=True, allow_atom_addition=False, allow_bond_addition=False)
+        actions = get_actions(state=self.smiles)#, allow_substitution=True, allow_atom_addition=False, allow_bond_addition=False)
         mo_actions = get_mo_stage2_actions(self.smiles, actions, functions=functions, thresholds=np.ones(n_obj)*0.5, t=1.0)   #change 1
         return mo_actions #constraint_top_k(valid_actions_constraint, score_func=target_function, k=args.top_k)
 
@@ -350,7 +350,8 @@ def UCTSEARCH(budget, root):
         
     return root # BESTCHILD(root, 0) # exploration_scalar=0
 
-start_mols_fn = 'libs/'+args.goal+'_stage1/result_start_mols_' + args.start_mols + '_seed_' + str(args.seed) + '.csv'
+#start_mols_fn = 'libs/'+args.goal+'_stage1/result_start_mols_' + args.start_mols + '_seed_' + str(args.seed) + '.csv'
+start_mols_fn = 'libs/'+args.goal+'_stage1/result_start_mols_' + args.start_mols + '_seed_0.csv'
 start_mols_df = pd.read_csv(start_mols_fn)
 start_mol_list = start_mols_df['smiles'].tolist()
 
@@ -358,10 +359,14 @@ save_dir = 'results/' + args.goal + '_stage2/' + args.start_mols + '/seed_' + st
 if not os.path.exists(save_dir):
     os.system('mkdir -p {:s}'.format(save_dir))
 
-group_length = 20 #change for different jobs
 n_mols = len(start_mol_list)
-start_idx = args.group_idx * group_length 
-end_idx = min((args.group_idx+1) * group_length, n_mols)
+if args.start_idx is None or args.end_idx is None:
+    group_length = 20 # change for different jobs
+    start_idx = args.group_idx * group_length 
+    end_idx = min((args.group_idx+1) * group_length, n_mols)
+else:
+    start_idx = args.start_idx
+    end_idx = min(args.end_idx, n_mols)
 
 for mol_idx in range(start_idx, end_idx):
     model_str = args.goal + '_maxchild_' + str(args.max_child) + '_sim_' + str(args.num_sims) + '_scalar_' + str(args.scalar) +  '_idx_' + str(mol_idx) + '_seed_' + str(args.seed)
@@ -375,7 +380,7 @@ for mol_idx in range(start_idx, end_idx):
         s = 'size smiles '
         for i in range(n_obj):
             s += goals[i] + ' '
-        s += 'qed sa max_or_val \n'
+        s += 'qed sa max_or_val\n'
         f.write(s)
 
     random.seed(args.seed)

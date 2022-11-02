@@ -351,7 +351,7 @@ with open(fn, "a") as f:
     s = 'size smiles '
     for i in range(n_obj):
         s += goals[i] + ' '
-    s += 'qed sa max_or_val \n'
+    s += 'qed sa max_or_val\n'
     f.write(s)
 
 random.seed(args.seed)

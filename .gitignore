@@ -3,3 +3,4 @@ MCTS/score_modules/ESOL_Score/__pycache__
 MCTS/score_modules/GSK3B_Score/__pycache__
 MCTS/score_modules/JNK3_Score/__pycache__
 MCTS/score_modules/SA_Score/__pycache__
+MCTS/chemblDB3.sqlitdb
