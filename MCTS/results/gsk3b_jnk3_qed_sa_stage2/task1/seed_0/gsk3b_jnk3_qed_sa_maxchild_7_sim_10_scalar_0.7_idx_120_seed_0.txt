@@ -1,0 +1,2 @@
+size smiles gsk3b jnk3 qed sa qed sa max_or_val
+29 C[C@H](c1cccc(F)c1)n1ccc(-c2ccnc(Nc3cnn(C)c3)n2)cc1=O 0.74 0.41 0.564073101891071 0.7645289811715179 0.564073101891071 0.7645289811715179 1

@@ -1,0 +1,2 @@
+size smiles gsk3b jnk3 qed sa qed sa max_or_val
+27 Cn1c(=O)n(C2CCCC2)c2nc(Nc3ccc(C(C)(C)C)cc3)ncc21 0.69 0.42 0.7520347000879692 0.8395315058146687 0.7520347000879692 0.8395315058146687 1

@@ -1,0 +1,2 @@
+size smiles gsk3b jnk3 qed sa qed sa max_or_val
+28 O=c1ncn2nc(Sc3ccc(F)cc3F)ccc2c1-c1c(Cl)cccc1Cl 0.68 0.48 0.4261443688183634 0.8053568377833437 0.4261443688183634 0.8053568377833437 1

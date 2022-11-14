@@ -1,0 +1,2 @@
+size smiles gsk3b jnk3 qed sa qed sa max_or_val
+39 CNC(=O)c1c(F)cccc1Nc1nc(Nc2cc3c(cc2OC)CCN3C(=O)CN(C)C)nc2[nH]ccc12 0.35 0.79 0.2719958064401144 0.7774685392628072 0.2719958064401144 0.7774685392628072 1
